@@ -1,0 +1,24 @@
+{{ partial "header.html" . }}
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div id="blog-archives" class="category">
+        {{ range (where .Site.Pages "Type" "post") }}
+              <h2 class="year-format">
+                {{ .Date | dateFormat "2006"}}
+              </h2>
+              <article>
+                <h2>
+                  <a href="{{ .Permalink }}" title="{{ .Title }}"> {{ .Title }}</a>
+                </h2>
+              <time>
+                <span class="month">{{ .Date | dateFormat "Jan" }}</span> <!-- print publish month -->
+                <span class="day">{{ .Date | dateFormat "2" }}</span> <!-- print publish day -->
+              </time>
+            </article>
+        {{ end }}
+        </div>
+    </div>
+  </div>
+</div>
