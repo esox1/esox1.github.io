@@ -1,4 +1,4 @@
-baseURL = "esox1.github.io"
+baseURL = ""
 languageCode = "en"
 defaultContentLanguage = "en"                             # en / zh-cn / ... (This field determines which i18n file to use)
 #title = "Even - A super concise theme for Hugo"
@@ -32,7 +32,7 @@ copyright = "kad3cl"            # default: author.name ↓        # 默认为下
   name = "Home"
   weight = 10
   identifier = "home"
-  url = "/post/"
+  url = "/"
 [[menu.main]]
   name = "Archives"
   weight = 20
@@ -43,11 +43,12 @@ copyright = "kad3cl"            # default: author.name ↓        # 默认为下
   weight = 30
   identifier = "tags"
   url = "/tags/"
-[[menu.main]]
-  name = "Categories"
-  weight = 40
-  identifier = "categories"
-  url = "/categories/"
+#
+# [[menu.main]]
+#   name = "Categories"
+#   weight = 40
+#   identifier = "categories"
+#   url = "/categories/"
 
 [params]
   version = "4.x"           # Used to give a friendly message when you have an incompatible update

@@ -1,5 +1,6 @@
 ---
 title: "Newarkctf19 writeup"
+tags: ["ctf", "newarkctf"]
 date: 2019-09-22T22:36:51Z
 draft: false
 ---
