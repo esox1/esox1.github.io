@@ -1,5 +1,5 @@
 User-agent: *
-Sitemap: esox1.github.com/sitemap.xml
+Sitemap: sitemap.xml
 
 User-agent: Baiduspider
 Disallow: /

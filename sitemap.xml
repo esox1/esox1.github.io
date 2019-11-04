@@ -1,78 +1,78 @@
-<?xml-stylesheet type="text/xsl" href="esox1.github.com/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>esox1.github.com/</loc>
+    <loc>/</loc>
     <lastmod>2019-09-22T22:36:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>esox1.github.com/tags/ctf/</loc>
+    <loc>/tags/ctf/</loc>
     <lastmod>2019-09-22T22:36:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>esox1.github.com/tags/newarkctf/</loc>
+    <loc>/tags/newarkctf/</loc>
     <lastmod>2019-09-22T22:36:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>esox1.github.com/post/newarkctf2019/</loc>
+    <loc>/post/newarkctf2019/</loc>
     <lastmod>2019-09-22T22:36:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>esox1.github.com/post/</loc>
+    <loc>/post/</loc>
     <lastmod>2019-09-22T22:36:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>esox1.github.com/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2019-09-22T22:36:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>esox1.github.com/tags/hackthebox/</loc>
+    <loc>/tags/hackthebox/</loc>
     <lastmod>2019-03-03T20:50:01-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>esox1.github.com/post/hackthebox-netmon/</loc>
+    <loc>/post/hackthebox-netmon/</loc>
     <lastmod>2019-03-03T20:50:01-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>esox1.github.com/tags/htb/</loc>
+    <loc>/tags/htb/</loc>
     <lastmod>2019-03-03T20:50:01-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>esox1.github.com/post/hackthebox-access-wt/</loc>
+    <loc>/post/hackthebox-access-wt/</loc>
     <lastmod>2019-02-03T20:50:01-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>esox1.github.com/categories/</loc>
+    <loc>/categories/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
