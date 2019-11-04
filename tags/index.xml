@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on </title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>kad3cl</copyright>
+    <lastBuildDate>Sun, 22 Sep 2019 22:36:51 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ctf</title>
+      <link>/tags/ctf/</link>
+      <pubDate>Sun, 22 Sep 2019 22:36:51 +0000</pubDate>
+      
+      <guid>/tags/ctf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>newarkctf</title>
+      <link>/tags/newarkctf/</link>
+      <pubDate>Sun, 22 Sep 2019 22:36:51 +0000</pubDate>
+      
+      <guid>/tags/newarkctf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hackthebox</title>
+      <link>/tags/hackthebox/</link>
+      <pubDate>Sun, 03 Mar 2019 20:50:01 -0500</pubDate>
+      
+      <guid>/tags/hackthebox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>htb</title>
+      <link>/tags/htb/</link>
+      <pubDate>Sun, 03 Mar 2019 20:50:01 -0500</pubDate>
+      
+      <guid>/tags/htb/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
