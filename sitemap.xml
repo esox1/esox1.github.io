@@ -44,6 +44,13 @@
   </url>
   
   <url>
+    <loc>/post/defcon27/</loc>
+    <lastmod>2019-08-11T22:36:51+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>/tags/hackthebox/</loc>
     <lastmod>2019-03-03T20:50:01-05:00</lastmod>
     <changefreq>weekly</changefreq>
