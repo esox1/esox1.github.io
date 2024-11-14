@@ -3,6 +3,8 @@ languageCode = "en-us"
 title = "Hi, folks | Islam"
 theme = "yinyang"
 DefaultContentLanguage = "en"
+publishDir = "docs"
+
 
 [markup]
   [markup.goldmark]

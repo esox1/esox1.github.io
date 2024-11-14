@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Hi, folks | Islam</title>
+    <link>https://esox1.github.io/tags/</link>
+    <description>Recent content in Tags on Hi, folks | Islam</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 22 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://esox1.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ctf</title>
+      <link>https://esox1.github.io/tags/ctf/</link>
+      <pubDate>Sun, 22 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://esox1.github.io/tags/ctf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NewarkCTF</title>
+      <link>https://esox1.github.io/tags/newarkctf/</link>
+      <pubDate>Sun, 22 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://esox1.github.io/tags/newarkctf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Certutil</title>
+      <link>https://esox1.github.io/tags/certutil/</link>
+      <pubDate>Sun, 03 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://esox1.github.io/tags/certutil/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Htb</title>
+      <link>https://esox1.github.io/tags/htb/</link>
+      <pubDate>Sun, 03 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://esox1.github.io/tags/htb/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PRTG Network Monitor</title>
+      <link>https://esox1.github.io/tags/prtg-network-monitor/</link>
+      <pubDate>Sun, 03 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://esox1.github.io/tags/prtg-network-monitor/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Windows</title>
+      <link>https://esox1.github.io/tags/windows/</link>
+      <pubDate>Sun, 03 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://esox1.github.io/tags/windows/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mdb</title>
+      <link>https://esox1.github.io/tags/mdb/</link>
+      <pubDate>Sun, 03 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>https://esox1.github.io/tags/mdb/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Powershell</title>
+      <link>https://esox1.github.io/tags/powershell/</link>
+      <pubDate>Sun, 03 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>https://esox1.github.io/tags/powershell/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
