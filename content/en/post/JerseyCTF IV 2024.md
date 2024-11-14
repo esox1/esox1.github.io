@@ -2,7 +2,7 @@
 title: "JerseyCTF IV writeup"
 tags: ["ctf", "JerseyCTF"]
 date: 2024-10-01
-draft: true
+draft: false
 ---
 
 ## beyond-the-packet
