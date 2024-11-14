@@ -4,7 +4,7 @@ date = "2019-08-11"
 tags = ["Defcon", "Travel"]
 categories = ["Travel"]
 menu = "main"
-draft = true
+draft = false
 +++
 
 
