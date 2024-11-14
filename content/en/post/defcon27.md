@@ -7,7 +7,6 @@ menu = "main"
 draft = false
 +++
 
-
 **DEFCON 27** – this was my first time at DEFCON! I've been to a few security cons before, like **HOPE (Hackers on Planet Earth)** in NYC and **Bayside** multiple times, but DEFCON was a whole new experience. I had no idea what to expect when I got there!
 
 I knew DEFCON followed **Black Hat** and had a reputation for being way more laid-back. Unlike Black Hat, DEFCON doesn’t have as much corporate advertising. That’s something my friends who had been to both told me about, and it sounded cool. I was at Defcon from **Thursday to Sunday** and was all set for an adventure.

@@ -2,34 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://esox1.github.io/tags/ctf/</loc>
-    <lastmod>2024-10-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://esox1.github.io/</loc>
-    <lastmod>2024-10-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://esox1.github.io/tags/jerseyctf/</loc>
-    <lastmod>2024-10-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://esox1.github.io/post/jerseyctf-iv-2024/</loc>
-    <lastmod>2024-10-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://esox1.github.io/post/</loc>
-    <lastmod>2024-10-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://esox1.github.io/tags/</loc>
-    <lastmod>2024-10-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://esox1.github.io/categories/</loc>
     <lastmod>2019-09-22T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://esox1.github.io/tags/ctf/</loc>
+    <lastmod>2019-09-22T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://esox1.github.io/categories/ctf/</loc>
+    <lastmod>2019-09-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://esox1.github.io/</loc>
     <lastmod>2019-09-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://esox1.github.io/tags/newarkctf/</loc>
     <lastmod>2019-09-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://esox1.github.io/post/newarkctf2019/</loc>
+    <lastmod>2019-09-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://esox1.github.io/post/</loc>
+    <lastmod>2019-09-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://esox1.github.io/tags/</loc>
     <lastmod>2019-09-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://esox1.github.io/tags/defcon/</loc>

@@ -6,15 +6,8 @@
     <description>Recent content in Posts on Hi, folks | Islam</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 01 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Sep 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://esox1.github.io/post/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>JerseyCTF IV writeup</title>
-      <link>https://esox1.github.io/post/jerseyctf-iv-2024/</link>
-      <pubDate>Tue, 01 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>https://esox1.github.io/post/jerseyctf-iv-2024/</guid>
-      <description>&lt;h2 id=&#34;beyond-the-packet&#34;&gt;beyond-the-packet&lt;/h2&gt;&#xA;&lt;h4 id=&#34;osint-medium&#34;&gt;osint medium&lt;/h4&gt;&#xA;&lt;h4 id=&#34;description&#34;&gt;Description&lt;/h4&gt;&#xA;&lt;p&gt;NICC netrunners have intercepted network traffic sent over an insecure channel. It seems there are messages located somewhere sent by a suspect we believe to be under the influence of the Rogue AI. Perhaps there is a way to find information about where he plans to meet our informant for an exchange of secrets.&lt;/p&gt;&#xA;&lt;p&gt;Flag Format - (special characters allowed, use dashes instead of spaces and no capitalization of letters) jctf{name-of-location}&#xA;then&lt;/p&gt;</description>
-    </item>
     <item>
       <title>Newarkctf19 Writeup</title>
       <link>https://esox1.github.io/post/newarkctf2019/</link>

@@ -1,9 +1,13 @@
----
-title: "JerseyCTF IV writeup"
-tags: ["ctf", "JerseyCTF"]
-date: 2024-10-01
-draft: false
----
++++
+title = "JerseyCTF IV Writeup"
+date = "2014-01-22"
+tags = ["ctf", "JerseyIVCTF"]
+categories = ["CTF"]
+menu = "main"
+draft = true
++++
+
+
 
 ## beyond-the-packet
 #### osint medium

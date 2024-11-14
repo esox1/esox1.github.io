@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JerseyIVCTF on Hi, folks | Islam</title>
+    <link>http://localhost:51247/tags/jerseyivctf/</link>
+    <description>Recent content in JerseyIVCTF on Hi, folks | Islam</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 22 Jan 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:51247/tags/jerseyivctf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JerseyCTF IV Writeup</title>
+      <link>http://localhost:51247/post/jerseyctf-iv-2024/</link>
+      <pubDate>Wed, 22 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>http://localhost:51247/post/jerseyctf-iv-2024/</guid>
+      <description>&lt;h2 id=&#34;beyond-the-packet&#34;&gt;beyond-the-packet&lt;/h2&gt;&#xA;&lt;h4 id=&#34;osint-medium&#34;&gt;osint medium&lt;/h4&gt;&#xA;&lt;h4 id=&#34;description&#34;&gt;Description&lt;/h4&gt;&#xA;&lt;p&gt;NICC netrunners have intercepted network traffic sent over an insecure channel. It seems there are messages located somewhere sent by a suspect we believe to be under the influence of the Rogue AI. Perhaps there is a way to find information about where he plans to meet our informant for an exchange of secrets.&lt;/p&gt;&#xA;&lt;p&gt;Flag Format - (special characters allowed, use dashes instead of spaces and no capitalization of letters) jctf{name-of-location}&#xA;then&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
