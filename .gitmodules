@@ -1,3 +1,6 @@
 [submodule "public"]
 	path = public
 	url = https://esox1.github.io
+[submodule "themes/yinyang"]
+	path = themes/yinyang
+	url = https://github.com/joway/hugo-theme-yinyang.git
